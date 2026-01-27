@@ -65,7 +65,12 @@ const botMessage = (message, isMoka = false) => {
 
 const submitButton = document.querySelector("[data-submit]");
 const chatContainer = document.querySelector("#chat_container");
-
+const mokaMessages = [
+  "Opa! ainda não programei essa parte da IA, podia tentar falar sobre outra coisa?",
+  "A IA ainda tá em desenvolvimento, poderia tentar outro assunto?",
+  "Essa parte o Prelúdio ainda não sabe responder, tente perguntar sobre o sequestro",
+  "Essa o Preludin não sabe, tenta outra!",
+];
 window.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     submitButton.click();
@@ -92,8 +97,8 @@ submitButton.addEventListener("click", () => {
     bot = botMessage(preludioResponse);
   } else {
     bot = botMessage(
-      "Opa! ainda não programei essa parte da IA, podia tentar falar sobre outra coisa?",
-      true
+      mokaMessages.at(Math.floor(Math.random() * mokaMessages.length)),
+      true,
     );
   }
   setTimeout(() => {
